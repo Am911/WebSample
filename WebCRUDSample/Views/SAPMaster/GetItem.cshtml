@@ -1,0 +1,92 @@
+﻿@model List<ItemCategory>
+<script src="~/js/gridjs.js"></script>
+<h2>Item category list</h2>
+
+<script src="~/js/filter.js"></script>
+<div class="scrolling">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">                  
+                    @* <input type="text" class="form-control" placeholder="Search Sr No." onkeyup="filterTable(0)"> *@
+                    Sr No.
+                </th>
+                <th scope="col" onclick="sortTable(1)">              
+                    <input type="text" class="form-control" placeholder="Search Description" onkeyup="filterTable(1)" onclick="event.stopPropagation()">
+                    Description
+                    <span class="sort-indicator">↓</span>
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control" placeholder="Search IsConsumable" onkeyup="filterTable(2)">
+                    IsConsumable
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control" placeholder="Search IsMedicine" onkeyup="filterTable(3)">
+                    IsMedicine
+                </th>
+                <th scope="col">
+                    <input type="text" class="form-control" placeholder="Search Remark" onkeyup="filterTable(4)">
+                    Reamrk
+                </th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            @{
+                var index = 1;
+                foreach (var i in Model)
+                {
+                    <tr>
+                        <td>@index</td>
+                        <td>@i.Description</td>
+                        <td>@i.IsConsumable</td>
+                        <td>@i.IsMedicine</td>
+                        <td>@i.Reamrk</td>
+                    </tr>
+                    index++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+
+
+</script>
+
+
+
+
+
+
+
+
+<style>
+    .scrolling {
+        overflow: auto;
+        max-width: 100%;
+        max-height: 300px;
+        border-bottom: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        border-top: 1px solid black;
+    }
+
+
+    th, td {
+        border-right: 1px solid black;
+        min-width: 100px;
+    }
+
+    table td {
+        max-width: 100px; /* Set a maximum width */
+        overflow: hidden; /* Hide overflowed content */
+        text-overflow: ellipsis; /* Adds an ellipsis (...) for overflowed content */
+        white-space: nowrap; /* Prevents wrapping */
+    }
+
+</style>
+
+
+
