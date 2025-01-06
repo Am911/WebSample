@@ -24,10 +24,11 @@
                     <input type="text" class="form-control" placeholder="Search IsMedicine" onkeyup="filterTable(3)">
                     IsMedicine
                 </th>
-                <th scope="col">
-                    <input type="text" class="form-control" placeholder="Search Remark" onkeyup="filterTable(4)">
-                    Reamrk
-                </th>
+                 <th scope="col" onclick="sortTable(4)">
+                     <input type="text" class="form-control" placeholder="Search Remark" onkeyup="filterTable(4)" onclick="event.stopPropagation()">
+                     Remark
+                     <span class="sort-indicator">↑</span>
+                 </th>
             </tr>
         </thead>
         <tbody id="table-body">
